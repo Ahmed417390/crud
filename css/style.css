@@ -1,0 +1,51 @@
+body{
+    background-color:#f7ecde;
+}
+
+.bookemark h1{
+color:#352e28;
+font-family:"Pacifico";
+font-size:50px;
+font-weight:500;
+line-height:60px;
+margin:0px 0px 8px;
+padding:8px 0px;
+position: relative;
+}
+
+.bookemark h1::before {
+        content: "";
+        position: absolute;
+        width: 18%;
+        height: 25%;
+        right: 528px;
+        bottom: 10%;
+        transition: all 0.5s;
+        background-color: #fec160e5;
+        z-index: -1;
+}
+
+
+.x{
+    border-top: #000  dotted 2px;
+}
+body .x p{
+    background-image: linear-gradient(to right, #3ca55c, #b5ac49);
+    color: transparent;
+    font-family:"Righteous";
+    font-size:25px;
+    font-weight:500;
+    line-height:30px;
+    margin:0px 0px 8px;
+    background-clip: text;
+
+}
+.SuBtn{
+    padding: 0 35px;
+    
+}
+a{
+    text-decoration: none ;
+    color :#fff;
+}
+
