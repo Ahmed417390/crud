@@ -27,7 +27,7 @@
      
 
     </div>
-    <div class="text-capitalize d-flex flex-column">
+    <div class="text-capitalize d-flex flex-column myForm my-4">
       <div class="mb-3 my-3">
         <label for="siteName" class="form-label"> <i class="fa-solid fa-book-bookmark me-2"></i>Site name</label>
         <input oninput="validationInput(this ,'msName')" type="text" class="form-control" id="siteName" placeholder="BookMark Name">
@@ -41,16 +41,19 @@
        
       </div>  
 
-      <button  class="btn btn-lg btn-danger text-center align-self-center my-3  SuBtn" onclick="AddSite()">Submit</button>
+      <button  id="SubBtn" class="btn btn-lg btn-danger text-center align-self-center my-3  SuBtn" onclick="AddSite()">Submit</button>
+
+  <button  id="UpBtn" class="btn btn-lg btn-warning d-none text-center align-self-center my-3  UpBtn" onclick=" updateData()">Update</button>
     </div>
 
 
-    <table class="table text-center">
+    <table class="table text-center text-capitalize">
       <thead>
         <tr class="text-capitalize">
           <td>index</td>
           <td>Website Name</td>
           <td>visit</td>
+          <td>update</td>
           <td>delete</td>
         </tr>
       </thead>

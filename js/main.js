@@ -2,7 +2,8 @@
 
 var siteNameInput= document.getElementById('siteName')
 var siteUrlInput= document.getElementById('siteUrl')
-
+var AddBtn= document.getElementById('SubBtn')
+var UpdateBtn= document.getElementById('UpBtn')
 var sitesArray =[]
 if(localStorage.getItem('sitesContainer') !=null){
     sitesArray = JSON.parse( localStorage.getItem('sitesContainer') )
@@ -33,8 +34,10 @@ function disPlaySites(){
            <tr>
           <td> ${i+1}</td>
           <td>${sitesArray[i].name} </td>
-          <td> <a class="btn btn-success " href="" onclick="openLink()" target="_blank" class="ms-1"><i class="fa-solid fa-eye"></i> visit</a> </td>
-          <td> <button onclick=" deleteSite(${i})" class="btn btn-danger" ><i class="fa-solid fa-trash"></i></button> </td>
+          <td> <a class="btn btn-success " href="" onclick="openLink()" target="_blank" class="me-1"><i class="fa-solid fa-eye"></i> visit</a> </td>
+                    <td> <button onclick="setUpdate(${i})" class="btn btn-primary" ><i class="fa-solid fa-pen-fancy me-1"></i>Update</button> </td>
+
+          <td> <button onclick=" deleteSite(${i})" class="btn btn-danger" ><i class="fa-solid fa-trash  me-1"></i>Delete</button> </td>
         </tr>
         `
     }
@@ -76,4 +79,28 @@ function clearInput(){
 function openLink(){
     var siteUrl = siteUrlInput.value
     window.open(siteUrl, '_blank')
+}
+
+
+function setUpdate(indexNumber){
+   
+    siteNameInput.value = sitesArray[indexNumber].name
+    siteUrlInput.value= sitesArray[indexNumber].url
+    AddBtn.classList.add('d-none')
+    UpdateBtn.classList.remove('d-none')
+
+    number= indexNumber
+}
+
+function updateData(){
+    var site ={
+        name:siteNameInput.value,
+        url:siteUrlInput.value
+    }
+    sitesArray.splice(number,1,site)
+    localStorage.setItem('sitesContainer',JSON.stringify(sitesArray)) 
+    disPlaySites() 
+    clearInput()
+    AddBtn.classList.remove('d-none')
+    UpdateBtn.classList.add('d-none')
 }
